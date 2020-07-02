@@ -24,15 +24,15 @@
 class CSRankings {
     constructor() {
         this.note = {};
-        this.authorFile = "http://csrankings.org//csrankings.csv";
-        this.authorinfoFile = "http://csrankings.org//generated-author-info.csv";
-        this.countryinfoFile = "http://csrankings.org//country-info.csv";
+        this.authorFile = "https://csrankings.org//csrankings.csv";
+        this.authorinfoFile = "https://csrankings.org//generated-author-info.csv";
+        this.countryinfoFile = "https://csrankings.org//country-info.csv";
         // private readonly aliasFile = "./dblp-aliases.csv";
-        this.turingFile = "http://csrankings.org//turing.csv";
-        this.turingImage = "http://csrankings.org//png/acm-turing-award.png";
-        this.acmfellowFile = "http://csrankings.org//acm-fellows.csv";
-        this.acmfellowImage = "http://csrankings.org//png/acm.png";
-        this.homepageImage = "http://csrankings.org//house-logo.png";
+        this.turingFile = "https://csrankings.org//turing.csv";
+        this.turingImage = "https://csrankings.org//png/acm-turing-award.png";
+        this.acmfellowFile = "https://csrankings.org//acm-fellows.csv";
+        this.acmfellowImage = "https://csrankings.org//png/acm.png";
+        this.homepageImage = "https://csrankings.org//house-logo.png";
         this.allowRankingChange = false; /* Can we change the kind of rankings being used? */
         this.areaMap = [{ area: "ai", title: "AI" },
             { area: "aaai", title: "AI" },
@@ -179,8 +179,8 @@ class CSRankings {
         this.color = ["#f30000", "#0600f3", "#00b109", "#14e4b4", "#0fe7fb", "#67f200", "#ff7e00", "#8fe4fa", "#ff5300", "#640000", "#3854d1", "#d00ed8", "#7890ff", "#01664d", "#04231b", "#e9f117", "#f3228e", "#7ce8ca", "#ff5300", "#ff5300", "#7eff30", "#9a8cf6", "#79aff9", "#bfbfbf", "#56b510", "#00e2f6", "#ff4141", "#61ff41"];
         this.RightTriangle = "&#9658;"; // right-facing triangle symbol (collapsed view)
         this.DownTriangle = "&#9660;"; // downward-facing triangle symbol (expanded view)
-        this.PieChart = "<img alt='closed piechart' src='http://csrankings.org/png/piechart.png'>"; // pie chart image
-        this.OpenPieChart = "<img alt='opened piechart' src='http://csrankings.org/png/piechart-open.png'>"; // opened pie chart image
+        this.PieChart = "<img alt='closed piechart' src='https://csrankings.org/png/piechart.png'>"; // pie chart image
+        this.OpenPieChart = "<img alt='opened piechart' src='https://csrankings.org/png/piechart-open.png'>"; // opened pie chart image
         CSRankings.theInstance = this;
         this.navigoRouter = new Navigo(null, true);
         /* Build the areaDict dictionary: areas -> names used in pie charts
@@ -896,13 +896,11 @@ class CSRankings {
                     this.areaDeptAdjustedCount[areaDept] = 0;
                 }
                 if (weights[area] != 0) {
-                    // Adjusted (smoothed) geometric mean.
                     // MAIN CHANGE BY EHSAN :))
                     this.stats[dept] += this.areaDeptAdjustedCount[areaDept];
                 }
             }
-            // finally compute geometric mean.
-            this.stats[dept] = this.stats[dept]/ numAreas; // - 1.0;
+            this.stats[dept] = this.stats[dept] / numAreas; // - 1.0;
         }
     }
     /* Updates the 'weights' of each area from the checkboxes. */
@@ -1001,7 +999,7 @@ class CSRankings {
                             + url
                             + '\', true); return false;"'
                             + '>'
-                            + '<img alt="Google Scholar" src="http://csrankings.org/scholar-favicon.ico" height="10" width="10">'
+                            + '<img alt="Google Scholar" src="https://csrankings.org/scholar-favicon.ico" height="10" width="10">'
                             + '</a>&nbsp;';
                     }
                 }
@@ -1012,7 +1010,7 @@ class CSRankings {
                     + dblpName
                     + '\', true); return false;"'
                     + '>'
-                    + '<img alt="DBLP" src="http://csrankings.org/dblp.png">'
+                    + '<img alt="DBLP" src="https://csrankings.org/dblp.png">'
                     + '</a>';
                 p += "<span onclick='csr.toggleChart(\"" + escape(name) + "\");' title=\"Click for author's publication profile.\" class=\"hovertip\" id=\"" + escape(name) + "-chartwidget\">"
                     + "<span class='piechart'>" + this.PieChart + "</span></span>"
